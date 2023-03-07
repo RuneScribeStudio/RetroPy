@@ -2,6 +2,8 @@
 
 body {
 	max-width: 95vw;
+    background-image: "imgs/bombs.png";
+    background-color: #cccccc;
 }
 
 /* Make the stuff all float to the left. Then apply a margin to it to make it seems center for screens lest the max width */
@@ -15,11 +17,6 @@ body {
 a, a:link, a:visited, a:hover, a:active {
 	color: #7b7b7b;
 	text-decoration: none;
-}
-
-body {
-  background-image: "imgs/bombs.png";
-  background-color: #cccccc;
 }
 
 .column {
