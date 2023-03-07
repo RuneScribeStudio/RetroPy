@@ -2,8 +2,6 @@
 
 body {
 	max-width: 95vw;
-    background-image: url("../imgs/background.png");
-    background-color: #cccccc;
 }
 
 /* Make the stuff all float to the left. Then apply a margin to it to make it seems center for screens lest the max width */
