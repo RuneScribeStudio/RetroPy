@@ -1,0 +1,594 @@
+<html lang="en">
+
+<head>
+    
+	<title>Retro Py Tutorial</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="TutorialPage">
+	<meta name="author" content="Ilyas">
+
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" href="style.css">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'-->
+</head>
+
+<body id="top" class="grid-container">
+	<h3 class="title">Retro Py Tutorial</h3>
+    
+    <div class="about-me" style="text-align: left;">
+		A game console for retro gaming using the Raspberry Pi Pico using Python.<br>
+		Most of the concept of RetroPy mimic small game engine such as PyGame Zero, Pyxel and Pico-8.<br>
+		The main idea of RetroPy is to create retro games using a “morden” programming language ie Python.<br>
+		RetroPy runs on a small game console making if super mobile.<br>
+        RetroPy is definitely a fun way to learn Python and a simple way to get into game programming.<br><br>
+	</div>
+    
+	<div class="skill-set">
+        <span style="font-weight: bold;"><br>Installation</span>
+        <pre>
+        If you have one of the following consoles, there is nothing to install.
+        However, you will need to install Thonny to code in Python.
+        </pre>
+        
+        <span style="font-weight: bold;">Update</span>
+        <pre>
+        RetroPy is fresh out of the oven and currently just got of beta. Do watch out for updates on this site.
+        </pre>
+    
+        <span style="font-weight: bold;">Example</span>
+        <pre>
+        Below is an example of using retroPy as a graphic tool.</pre>
+        
+        <div class="test">
+            <span style="font-family: 'Courier New'">
+                from retroPy import rpy<br><br>
+
+                rpy.clear()<br>
+                rpy.filled_circle(120, 120, 100, 8)<br>
+                rpy.text("hello!", 95, 115, 7)<br><br>
+
+                rpy.show()</span>
+            </div>
+        
+        <pre>
+        Next is an example of using retroPy as a simple game engine</pre>
+        
+        <div class="test">
+            <span style="font-family: 'Courier New'">
+                from retroPy import rpy, Rect<br><br>
+
+                def update(dt):<br>
+                <span class="tab"></span>pass<br><br>
+
+                def draw():<br>
+                <span class="tab"></span>rpy.clear()<br>
+                <span class="tab"></span>rpy.filled_circle(120, 120, 100, 8)<br>
+                <span class="tab"></span>rpy.text("hello!", 95, 115, 7) <br><br>
+
+                def on_key_down(key):<br>
+                <span class="tab"></span>pass<br>
+                def on_key_up(key):<br>
+                <span class="tab"></span>pass<br>
+                #=========================================================================<br>
+                rpy.run(update, draw, on_key_down, on_key_up)</span>
+            </div>
+        
+        <span style="font-weight: bold;"><br>retroPy Color Palette</span>
+        <pre>
+            retroPy uses a 16 color palette system
+            (retroPy uses the same color pallet as Pico-8)</pre>
+
+        <img src="imgs/color_pallet.png" alt="color pallet">
+
+        <pre>
+            Color values
+            0x0000, 0x194A, 0x792A, 0x042A, 0xAA86, 0x5AA9, 0xC618, 0xFF9D,
+            0xF809, 0xFD00, 0xFF64, 0x0726, 0x2D7F, 0x83B3, 0xFBB5, 0xFE75
+            </pre>
+        
+        <span style="font-weight: bold;">API Reference<br></span>
+        <span style="font-weight: bold;">Setup<br></span>
+        
+        <span style="font-weight: bold;">Rect</span>
+        <pre>
+            A built in class
+            (x,  y,  width,  length)
+            </pre>
+        
+        <span style="font-weight: bold;">Graphics</span>
+        <pre>
+            <mark style="background-color: lightgrey">clear()</mark>
+            - clear the screen black
+            <mark style="background-color: lightgrey">fill(color)</mark>
+            - clear the screen with color
+            <mark style="background-color: lightgrey">pixel(x, y)</mark>
+            - set the pixel at x, y with color
+            <mark style="background-color: lightgrey">line(start, end, color)</mark>
+            - draw a line starting at x1, y1 and ending at x2, y2
+            <mark style="background-color: lightgrey">hline(start, length, color)</mark>
+            - draw a horizontal line at x, y with length and color
+            <mark style="background-color: lightgrey">vline(start, height, color)</mark>
+            - draw a verticle line at x, y with length and color
+            <mark style="background-color: lightgrey">circle(center, radius, color)</mark>
+            - draw a circle center x, y with radius and color
+            <mark style="background-color: lightgrey">filled_circle(center, radius, color)</mark>
+            - draw a filled circle center x, y with radius and color
+            <mark style="background-color: lightgrey">rect(Rect, color)</mark>
+            - draw a rectangle at Rect with color
+            <mark style="background-color: lightgrey">filled_rect(Rect, color)</mark>
+            - draw a filled rectangle at Rect with color
+            <mark style="background-color: lightgrey">text(string, start, color)</mark>
+            - write a string at x, y with color
+            </pre>
+        
+        <span style="font-weight: bold;">Actors</span>
+        <pre>
+            <mark style="background-color: lightgrey">actor(ptr2spriteTable, x, y, flipDuration, speed_x, speed_y)</mark>
+            - create an actor with spriteTable at x, y with flipDuratopm and speed_x and speed_y
+            - speed is in pixel per second (float)
+            <mark style="background-color: lightgrey">speed(speed_x, speed_y)</mark>
+            - actor speed x direction and y direction
+            <mark style="background-color: lightgrey">speed_x (property)</mark>
+            - get actor speed x direction
+            <mark style="background-color: lightgrey">speed_x(speed)</mark>
+            - set actor speed in the x direction
+            <mark style="background-color: lightgrey">speed_y (property)</mark>
+            - get actor speed y direction
+            <mark style="background-color: lightgrey">speed_y(speed)</mark>
+            - set actor speed in the y direction
+
+            <mark style="background-color: lightgrey">pos(pos_x, pos_y)</mark>
+            - set actor positions
+            <mark style="background-color: lightgrey">pos_x (property)</mark>
+            - get actor x poaition
+            <mark style="background-color: lightgrey">pos_x(position)</mark>
+            - set actor x position
+            <mark style="background-color: lightgrey">pos_y (property)</mark>
+            - get actor y poaition
+            <mark style="background-color: lightgrey">pos_y(position)</mark>
+            - set actor y position
+
+            <mark style="background-color: lightgrey">bound(xmin, xmax, ymin, ymax)</mark>
+            - set the maximum and minimum x and y positions
+            <mark style="background-color: lightgrey">bound_x(xmin, xmax)</mark>
+            - set the maximum and minimum x  positions
+            <mark style="background-color: lightgrey">bound_y(ymin, ymax)</mark>
+            - set the maximum and minimum y positions
+
+            <mark style="background-color: lightgrey">dist(actor)</mark>
+            - get distance between 2 actors
+            <mark style="background-color: lightgrey">sprite()</mark>
+            - change the spriteTable
+            <mark style="background-color: lightgrey">currNdx(ndx)</mark>
+            - get the current sprite index
+
+            <mark style="background-color: lightgrey">moveTowards(x, y, speed, dt)</mark>
+
+            <mark style="background-color: lightgrey">draw()</mark>
+            - draw the actor in the draw 
+            </pre>
+        
+        <span style="font-weight: bold;">Button Inputs</span>
+        
+        <pre>
+        Example of sprites
+        </pre>
+        
+        <span style="font-weight: bold;">Actors</span>
+        
+        <pre>
+            Asteroid 4x14x14
+            <img src="imgs/asteroid.png">
+
+            bombs
+            bomb1 2x8x8
+            <img src="imgs/bombs.png">
+            Bomb2 2x8x8
+            <img src="imgs/bombs.png">
+
+            boosters
+            boosters 2x16x7
+            <img src="imgs/boosters.png">
+
+            boy
+            boy_idle 2x16x16
+            <img src="imgs/boy_idle.png">
+            boy_idle_r 2x16x16
+            <img src="imgs/boy_idle_r.png">
+            boy_idle_l 2x16x16
+            <img src="imgs/boy_idle_l.png">
+            boy_idle_u 2x16x16
+            <img src="imgs/boy_idle_u.png">
+
+            boy_walk_d 4x16x16
+            <img src="imgs/boy_walk_d.png">
+            boy_walk_l 4x16x16
+            <img src="imgs/boy_walk_l.png">
+            boy_walk_r 4x16x16
+            <img src="imgs/boy_walk_r.png">
+            boy_walk_u 4x16x16
+            <img src="imgs/boy_walk_u.png">
+            enemy2 2x16x16x
+            <img src="imgs/enemy2.png">
+            explosion 3x16x16
+            <img src="imgs/explosion.png">
+            explosion1 6x16x16
+            <img src="imgs/explosion1.png">
+            Explosion2 5x16x16
+            <img src="imgs/explosion2.png">
+
+            heart 3x16x16
+            <img src="imgs/heart.png">
+
+            Heart_red 3x16x16
+            <img src="imgs/heart_red.png">
+
+            lips 5x16x16
+            <img src="imgs/lips.png">
+
+            projectile 4x8x16
+            <img src="imgs/projectile.png">
+            Projectile1 2x14x6
+            <img src="imgs/projectile1.png">
+            ship 3x16x16
+            <img src="imgs/ship.png">
+            Ship1 1x26x12
+            <img src="imgs/ship1.png">
+            Ship2 1x16x16
+            <img src="imgs/ship2.png">
+            wall
+            wall1 1x16x16
+
+            wall2 1x16x16
+            <img src="imgs/Wall.png">
+
+            Test1.py 1x16x16
+            <img src="imgs/Test1.png">
+            </pre>
+        
+        
+        <span style="font-weight: bold;">Getting Started<br></span>
+        
+        <span style="font-weight: bold;">Minimal Code</span>
+        <div class="test">
+            <span style="font-family: 'Courier New'">
+                from retroPy import rpy<br><br>
+
+                def update(dt):<br>
+                <span class="tab"></span>pass<br><br>
+
+                def draw():<br>
+                <span class="tab"></span>pass<br><br>
+
+                def on_key_down(key):<br>
+                <span class="tab"></span>pass<br>
+                def on_key_up(key):<br>
+                <span class="tab"></span>pass<br>
+                #=========================================================================<br>
+                rpy.run(update, draw, on_key_down, on_key_up)</span>
+            </div>
+        
+        <span style="font-weight: bold;"><br>Drawing primitives</span>
+        <div class="test">
+            <span style="font-family: 'Courier New'">
+                from retroPy import rpy, Rect<br><br>
+                
+                def update(dt):<br>
+                <span class="tab"></span>pass<br><br>
+
+                def draw():<br>
+                <span class="tab"></span>rpy.clear(1)<br>
+                <span class="tab"></span>rpy.filled_rect(Rect(0, 0, 24, 24), 5)<br>
+                <span class="tab"></span>rpy.filled_circle(50, 50, 12, 8)<br>
+                <span class="tab"></span>rpy.text("Hello World", 75, 100, 7)<br>
+                <span class="tab"></span>pass<br><br>
+
+                def on_key_down(key):<br>
+                <span class="tab"></span>pass<br>
+                def on_key_up(key):<br>
+                <span class="tab"></span>pass<br>
+                #=========================================================================<br>
+                rpy.run(update, draw, on_key_down, on_key_up)</span>
+            </div>
+        
+        <span style="font-weight: bold;"><br>Sprite</span>
+        
+        <pre>
+        Using a sprite</pre>
+        
+        <div class="test">
+            <span style="font-family: 'Courier New'">
+                from retroPy import rpy, Rect, actor, LoadSpriteStr<br>
+                from Assets import boy<br><br>
+
+                player = actor(LoadSpriteStr(boy.boy_idle), 20, 20, 0, 0, 0)<br>
+                player.flipDuration(300)<br>
+                player.speed_x = 80<br>
+                player.bound_x(0,224)<br><br>
+
+                def update(dt):<br>
+                <span class="tab"></span>player.update(dt)<br><br>
+
+                def draw():<br>
+                <span class="tab"></span>rpy.clear()<br>
+                <span class="tab"></span>player.draw()<br>
+
+                def on_key_down(key):<br>
+                <span class="tab"></span>pass<br><br>
+                def on_key_up(key):<br>
+                <span class="tab"></span>pass<br>
+                #=========================================================================<br>
+                rpy.run(update, draw, on_key_down, on_key_up)</span>
+            </div>
+        <!--span style="font-weight: bold;">Draw:</span>
+        <pre>
+            - clear()
+            - fill(color)
+            - pixel(x, y)
+            - line(start, end, color)
+            - hline(start, length, color)
+            - vline(start, height, color)
+            - circle(center, radius, color)
+            - filled_circle(center, radius, color)
+            - rect(Rect, color)
+            - filled_rect(Rect, color)
+            - text(string, start, color)
+
+            - blit(bytearray, x, y)
+            - sprite(SpriteArray, x, y)
+            </pre>
+        
+        <span style="font-weight: bold;">Rect:</span>
+        <pre>
+            - A built in class
+            - (x, y, width, length)
+            - All arguments color, start, end, elngth, center, radius, x, y
+              and width are integers except for string and Rect
+            </pre>
+        
+        <span style="font-weight: bold;">Actor:</span>
+        <pre>
+            - (ptr2spriteTable, x, y, flipDuration, speed_x, speed_y)
+            - speed(speed_x, speed_y)
+            - speed_x(speed)
+            - float speed_x()
+            - speed_y(speed)
+            - float speed_y()
+            - bound(xmin, xmax, ymin, ymax)
+            - bound_x(xmin, xmax)
+            - bound_y(ymin, ymax)
+            - dist(actor)
+            - sprite()
+            - currNdx(ndx)
+            moveTowards(x, y, speed, dt)
+            - draw()
+            </pre>
+        
+        <span style="font-weight: bold;">Sound:</span>
+        <pre>
+            - Init()
+            - Play()
+            - Stop()
+            - Pause()
+            - Cont()
+            - isPlaying
+
+            - const uint16_t RGB4to565lookupTable[16]={
+                0x0000,
+            }
+            </pre>
+        
+        <span style="font-weight: bold;">Actors</span>
+        <pre>
+            Asteroid 4x14x14
+            <img src="imgs/asteroid.png">
+
+            bombs
+            bomb1 2x8x8
+            <img src="imgs/bombs.png">
+            Bomb2 2x8x8
+            <img src="imgs/bombs.png">
+
+            boosters
+            boosters 2x16x7
+            <img src="imgs/boosters.png">
+
+            boy
+            boy_idle 2x16x16
+            <img src="imgs/boosters.png">
+            boy_idle_r 2x16x16
+            <img src="imgs/boosters.png">
+            boy_idle_l 2x16x16
+            <img src="imgs/boosters.png">
+            boy_idle_u 2x16x16
+            <img src="imgs/boosters.png">
+
+            boy_walk_d 4x16x16
+
+            boy_walk_l 4x16x16
+
+            boy_walk_r 4x16x16
+
+            boy_walk_u 4x16x16
+
+            enemy2 2x16x16x
+
+            explosion 3x16x16
+
+            explosion1 6x16x16
+
+            Explosion2 5x16x16
+
+
+            heart 3x16x16
+
+
+            Heart_red 3x16x16
+
+
+            lips 5x16x16
+
+
+            projectile 4x8x16
+
+            Projectile1 2x14x6
+
+            ship 3x16x16
+
+            Ship1 1x26x12
+
+            Ship2 1x16x16
+
+            wall
+            wall1 1x16x16
+
+            wall2 1x16x16
+
+
+            Test1.py 1x16x16
+            </pre>
+        
+        <span style="font-weight: bold;">Getting Started</span>
+        <span style="font-weight: bold;">Minimal Code</span>
+        <pre>
+            from retropy import Rect, screen
+            def update(dt):
+                pass
+            def draw():
+                pass
+            def on_key_down(key):
+                pass
+            def on_key_up(key):
+                pass  
+            screen.run(update, draw, on_key_down, on_key_up)
+            Ex-00.py
+            </pre>
+        
+        <span style="font-weight: bold;">Drawing primitives</span>
+        <pre>
+            from retropy import Rect, screen
+            def update(dt):
+                pass
+            def draw():
+                screen.draw.clear()
+                screen.draw.filled_rect(Rect(0, 0, 24, 24), 5)
+                screen.draw.filled_circle(50, 50, 12, 8)
+                screen.draw.text("Hello World", 75, 100, 7)
+            def on_key_down(key):
+                pass
+            def on_key_up(key):
+                pass  
+            screen.run(update, draw, on_key_down, on_key_up)
+            Ex-01.py
+            </pre>
+        
+        <span style="font-weight: bold;">Sprite</span>
+        <pre>
+            Place a sprite
+            from retropy import Rect, screen, actor
+            import assets
+            player = actor(assets.player, 20, 20, 0, 0, 0)
+            def update(dt):
+                pass
+            def draw():
+                screen.draw.clear()
+                player.draw()
+            def on_key_down(key):
+                pass
+            def on_key_up(key):
+                pass  
+            screen.run(update, draw, on_key_down, on_key_up)
+
+            Place a sprite and animate (300 msec)
+            player.flipDuration(300)
+
+            give speed in the x axis (80 pixel per second)
+            player.speed_x(80)
+
+            set boundaries for the x axis (form 0 to 224 – the size of the sprite is 14
+            player.bound_x(0,224)
+
+            Everything in one line of code
+            player = actor(assets.player, 20, 20, 300, 80, 0, 0, 224, 0, 224)
+
+            complete code
+            player = actor(assets.player, 20, 20, 300, 80,  0, 224, 0, 224)
+
+            from retropy import Rect, screen, actor
+            import assets
+
+            player = actor(assets.player, 20, 20, 0, 0, 0)
+            player.flipDuration(300)
+            player.speed_x(80)
+            player.bound_x(0,224)
+
+            def update(dt):
+                pass
+
+            def draw():
+                screen.draw.clear()
+                player.draw()
+
+            def on_key_down(key):
+                pass
+            def on_key_up(key):
+                pass  
+
+            screen.run(update, draw, on_key_down, on_key_up)
+
+
+            Controlling movement in the x-axis
+            Left - 0
+            Right - 3
+            Up - 2
+            Down - 1
+
+            from retropy import Rect, screen, actor
+            import assets
+
+            player = actor(assets.player, 20, 20, 300, 80, 0, 0, 224, 0, 224)
+
+            def update(dt):
+                pass
+
+            def draw():
+                screen.draw.clear()
+                player.draw()
+
+            def on_key_down(key):
+                if (key == 0): #keys.LEFT
+                    player.speed_x(-80)    
+                elif (key == 3): #keys.RIGHT
+                    player.speed_x(80)    
+
+            def on_key_up(key):
+                pass  
+
+            screen.run(update, draw, on_key_down, on_key_up)
+            </pre-->
+	</div>
+	<!--div id="projects" class="projects">
+		<pre>
+			Some projects that I have done:
+			- <a href="#top">This website you are seeing is fully built by me.</a>
+			- <a href="https://github.com/Jaimeloeuf/Pure-Node.JS-API-Server" target="_blank">Pure Node JS Server Framework</a>
+			- <a href="https://github.com/Jaimeloeuf/GDP-analytics" target="_blank">GDP Analytics App in C</a>
+			- <a href="https://github.com/Jaimeloeuf/UVA-Judge-problems" target="_blank">Competitve C/C++ Programming for UVA Judge</a>
+			- <a href="https://github.com/Jaimeloeuf/Movie-Booking-App" target="_blank">Java 'Movie Booking' GUI Application.</a>
+			- <a href="https://github.com/Jaimeloeuf/pythonmorsels" target="_blank">Competitve Python Programming code</a>
+			- <a href="#" target="">Fan controller</a>
+		</pre>
+	</div-->
+
+	<!--footer class="footer">
+		<pre style="font-weight: bold;">
+		<a href="#top">Back to Top ^</a>
+		&copy;JaimeLoeuf
+		&copy;JJ	2018
+		</pre>
+	</footer-->
+</body>
+
+</html>
