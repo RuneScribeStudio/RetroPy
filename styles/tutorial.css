@@ -17,6 +17,11 @@ a, a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
 }
 
+body {
+  background-image: "imgs/bombs.png";
+  background-color: #cccccc;
+}
+
 .column {
     float: left;
     width: 25%;
