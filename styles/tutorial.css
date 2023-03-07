@@ -2,7 +2,7 @@
 
 body {
 	max-width: 95vw;
-    background-image: "imgs/bombs.png";
+    background-image: url("../imgs/bombs.png");
     background-color: #cccccc;
 }
 
