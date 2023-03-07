@@ -17,20 +17,6 @@ a, a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
 }
 
-/* Header/Logo Title */
-.header {
-  padding: 60px;
-  text-align: center;
-  background: #1abc9c;
-  color: white;
-  font-size: 30px;
-}
-
-/* Page Content */
-.content {
-    padding:20px;
-}
-
 
 
 .column {
@@ -63,6 +49,7 @@ a, a:link, a:visited, a:hover, a:active {
 .title {
 	font-size: 4.7em;
 	grid-area: title;
+    background: #1abc9c;
 	margin: auto;
 	margin-top: 2.4em;
 	margin-bottom: 0.5em;
