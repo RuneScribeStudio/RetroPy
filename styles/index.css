@@ -17,6 +17,22 @@ a, a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
 }
 
+/* Header/Logo Title */
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+/* Page Content */
+.content {
+    padding:20px;
+}
+
+
+
 .column {
     float: left;
     width: 25%;
@@ -43,11 +59,6 @@ a, a:link, a:visited, a:hover, a:active {
 		". footer .";
 }
 
-mark { 
-    font-family: 'Courier New';
-    background-color: lightgrey;
-    color: black;
-}
 
 .title {
 	font-size: 4.7em;
