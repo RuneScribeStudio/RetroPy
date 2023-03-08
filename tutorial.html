@@ -18,11 +18,15 @@
 	<h3 class="title">retroPy Tutorial</h3>
     
     <div class="about-me" style="text-align: left;">
-		RetroPy is a game console for retro gaming using the Raspberry Pi Pico and programmed in Python.<br>
+		retroPy is a game console for retro gaming using the Raspberry Pi Pico and programmed in Python.<br>
 		Most concepts of the retroPy mimic small game engines such as PyGame Zero, Pyxel and Pico-8.<br>
 		The main idea of retroPy is to be able to create retro games using a “modern” programming language (e.g. Python).<br>
 		One of retroPy's great qualities is that it runs on a small gaming console, making it super mobile.<br>
-        RetroPy is definitely a fun way to learn Python and a simple way to get into game programming.<br><br>
+        retroPy is definitely a fun way to learn Python and a simple way to get into game programming.<br><br>  
+        <img src="img/console1.png">
+        <span class="tab"></span>
+        <img src="img/console3.png">
+        <br><br>
 	</div>
     
 	<div class="skill-set">
@@ -34,7 +38,7 @@
         
         <span style="font-weight: bold;">Update</span>
         <pre>
-        RetroPy is fresh out of the oven and currently just got of beta. Do watch out for updates on this site.
+        RetroPy is fresh out of the oven and currently just got of beta. Do keep a look out for updates.
         </pre>
     
         <span style="font-weight: bold;">Example</span>
@@ -53,7 +57,7 @@
             </div>
         
         <pre>
-        Next is an example of using retroPy as a simple game engine</pre>
+        Next is an example of using retroPy as a simple game engine.</pre>
         
         <div class="test">
             <span style="font-family: 'Courier New'">
@@ -77,23 +81,35 @@
         
         <span style="font-weight: bold;"><br>retroPy Color Palette</span>
         <pre>
-            retroPy uses a 16 color palette system
-            (retroPy uses the same color pallet as Pico-8)</pre>
+            retroPy uses a 16 color palette system.
+            (retroPy uses the same color pallet as Pico-8).</pre>
 
         <img src="img/color_pallet.png" alt="color pallet">
 
         <pre>
-            Color values
+            Color values:
             0x0000, 0x194A, 0x792A, 0x042A, 0xAA86, 0x5AA9, 0xC618, 0xFF9D,
             0xF809, 0xFD00, 0xFF64, 0x0726, 0x2D7F, 0x83B3, 0xFBB5, 0xFE75
             </pre>
         
         <h1>API Reference<br></h1>
+        
+        <span style="font-weight: bold;">disp</span>
+        <pre>
+            orientation(setting)
+            set the orientation of the display
+            setting values:
+            0 – normal
+            1 – rotation 90 degrees
+            2 – rotation 180 degrees
+            3 – rotation 270 degrees
+            </pre>
+        
         <span style="font-weight: bold;">Setup<br></span>
         
         <span style="font-weight: bold;">Rect</span>
         <pre>
-            A built in class
+            A built in class.
             (x,  y,  width,  length)
             </pre>
         
